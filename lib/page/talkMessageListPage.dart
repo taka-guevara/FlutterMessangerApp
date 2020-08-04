@@ -20,7 +20,6 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Text("メッセージ"),
       ),
       body: Scrollbar(
@@ -28,18 +27,20 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
           padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
             for (int index = 0; index < widget.messageList.length; index++)
-              ListTile(
-                leading: ExcludeSemantics(
-                  child: CircleAvatar(
-                    backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl)),
+              Card(
+                child:ListTile(
+                  leading: ExcludeSemantics(
+                    child: CircleAvatar(
+                      backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl)),
+                  ),
+                  title: Text(
+                    widget.messageList[index].name,
+                  ),
+                  subtitle: Text(
+                        widget.messageList[index].message,
+                        maxLines: 2,
+                      ),
                 ),
-                title: Text(
-                  widget.messageList[index].name,
-                ),
-                subtitle: Text(
-                      widget.messageList[index].message,
-                      maxLines: 2,
-                    ),
               ),
           ],
         ),

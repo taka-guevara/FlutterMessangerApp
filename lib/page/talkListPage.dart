@@ -4,7 +4,10 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:messanger/page/talkMessageListPage.dart';
+
 import 'package:messanger/model/chatModel.dart';
+import 'package:messanger/model/chatMessageModel.dart';
 
 enum TalkListType {
   oneLine,
@@ -47,6 +50,15 @@ class _TalkListPageState extends State<TalkListPage> {
                       maxLines: 2,
                     )
                     : null,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return TalkMessageListPage(messageList: ChatMessageModel.dummyData);
+                      },
+                    ),
+                  );
+                },
               ),
           ],
         ),

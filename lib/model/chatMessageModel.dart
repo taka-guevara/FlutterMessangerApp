@@ -9,28 +9,28 @@ class ChatMessageModel {
 
   static final List<ChatMessageModel> dummyData = [
     ChatMessageModel(
-      avatarUrl: "https://randomuser.me/api/portraits/women/34.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/men/83.jpg",
       name: "モーフィアス",
       datetime: "20:18",
       message: "これが最後のチャンスだ。後戻りはできない",
       isMine: false,
     ),
     ChatMessageModel(
-      avatarUrl: "https://randomuser.me/api/portraits/women/49.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
       name: "自分",
       datetime: "20:30",
       message: "どういうことだ？",
       isMine: true,
     ),
     ChatMessageModel(
-      avatarUrl: "https://randomuser.me/api/portraits/women/77.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/men/83.jpg",
       name: "モーフィアス",
       datetime: "20:34",
       message: "青い錠剤を飲めば、この話はなかったことになりベッドで目覚め元の日常に戻る。赤い錠剤を飲めば、この不思議な世界の真実へ連れて行こう",
       isMine: false,
     ),
     ChatMessageModel(
-      avatarUrl: "https://randomuser.me/api/portraits/men/81.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
       name: "自分",
       datetime: "20:45",
       message: "赤を飲むか。。。。",
