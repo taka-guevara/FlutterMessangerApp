@@ -12,6 +12,9 @@ class TalkMessageListPage extends StatefulWidget {
 }
 
 class _TalkMessageListPageState extends State<TalkMessageListPage> {
+  final messageTextInputCtl = new TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,22 +27,50 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
           children: [
             for (int index = 0; index < widget.messageList.length; index++)
               Card(
+                margin: widget.messageList[index].isMine 
+                ? EdgeInsets.only(top: 5.0, left: 8.0, bottom: 5.0, right: 90.0)
+                : EdgeInsets.only(top: 5.0, left: 90.0, bottom: 5.0, right: 8.0),
                 child:ListTile(
-                  leading: ExcludeSemantics(
-                    child: CircleAvatar(
-                      backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl)),
-                  ),
-                  title: Text(
-                    widget.messageList[index].name,
-                  ),
-                  subtitle: Text(
-                        widget.messageList[index].message,
-                        maxLines: 2,
+                  title:Text(widget.messageList[index].message),
+                  subtitle: Row(
+                    mainAxisAlignment: widget.messageList[index].isMine 
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.end,
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl),
+                        radius: 10.0,
                       ),
+                      Text(widget.messageList[index].name + widget.messageList[index].datetime),
+                    ]
+                  ),
                 ),
               ),
           ],
         ),
+      ),
+      bottomNavigationBar: new Container(
+        height: 50.0,
+        color: Colors.green[100],
+        child: Column(
+          children: <Widget>[
+            new Form(
+              key: _formKey, 
+              child: Column(
+                children: <Widget>[
+                  new TextFormField(
+                            controller: messageTextInputCtl,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              border: const UnderlineInputBorder(),
+                              hintText: 'メッセージを入力してください',
+                            ),
+                          ),
+                ]
+              )
+            ),
+          ]
+        )
       ),
     );
   }
