@@ -56,15 +56,26 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
           children: <Widget>[
             new Form(
               key: _formKey, 
-              child: Column(
+              child: Row(
                 children: <Widget>[
-                  new TextFormField(
+                  new Flexible(
+                    child: new TextFormField(
                             controller: messageTextInputCtl,
                             keyboardType: TextInputType.text,
                             decoration: const InputDecoration(
-                              border: const UnderlineInputBorder(),
+                              // border: const UnderlineInputBorder(),
                               hintText: 'メッセージを入力してください',
                             ),
+                          )),
+                          RaisedButton.icon(
+                            icon: Icon(
+                              Icons.send,
+                              color: Colors.white,
+                            ),
+                            label: Text(""),
+                            onPressed: () {},
+                            color: Colors.green[300],
+                            textColor: Colors.white,
                           ),
                 ]
               )
