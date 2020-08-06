@@ -21,8 +21,10 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
       appBar: AppBar(
         title: Text("メッセージ"),
       ),
-      body: Scrollbar(
-        child: ListView(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children : <Widget> [
+         ListView(
           padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
             for (int index = 0; index < widget.messageList.length; index++)
@@ -48,40 +50,41 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
               ),
           ],
         ),
-      ),
-      bottomNavigationBar: new Container(
-        height: 50.0,
-        color: Colors.green[100],
-        child: Column(
-          children: <Widget>[
-            new Form(
-              key: _formKey, 
-              child: Row(
-                children: <Widget>[
-                  new Flexible(
-                    child: new TextFormField(
-                            controller: messageTextInputCtl,
-                            keyboardType: TextInputType.text,
-                            decoration: const InputDecoration(
-                              // border: const UnderlineInputBorder(),
-                              hintText: 'メッセージを入力してください',
-                            ),
-                          )),
-                          RaisedButton.icon(
-                            icon: Icon(
-                              Icons.send,
-                              color: Colors.white,
-                            ),
-                            label: Text(""),
-                            onPressed: () {},
-                            color: Colors.green[300],
-                            textColor: Colors.white,
-                          ),
-                ]
-              )
-            ),
-          ]
-        )
+        new Container(
+            height: 50.0,
+            color: Colors.green[100],
+            child: Column(
+              children: <Widget>[
+                new Form(
+                  key: _formKey, 
+                  child: Row(
+                    children: <Widget>[
+                      new Flexible(
+                        child: new TextFormField(
+                                controller: messageTextInputCtl,
+                                keyboardType: TextInputType.text,
+                                decoration: const InputDecoration(
+                                  // border: const UnderlineInputBorder(),
+                                  hintText: 'メッセージを入力してください',
+                                ),
+                              )),
+                              RaisedButton.icon(
+                                icon: Icon(
+                                  Icons.send,
+                                  color: Colors.white,
+                                ),
+                                label: Text(""),
+                                onPressed: () {},
+                                color: Colors.green[300],
+                                textColor: Colors.white,
+                              ),
+                    ]
+                  )
+                ),
+              ]
+            )
+          ),
+        ]
       ),
     );
   }
