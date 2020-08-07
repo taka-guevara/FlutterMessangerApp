@@ -62,7 +62,8 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                       new Flexible(
                         child: new TextFormField(
                                 controller: messageTextInputCtl,
-                                keyboardType: TextInputType.text,
+                                keyboardType: TextInputType.multiline,
+                                maxLines: null,
                                 decoration: const InputDecoration(
                                   // border: const UnderlineInputBorder(),
                                   hintText: 'メッセージを入力してください',
