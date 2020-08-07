@@ -43,5 +43,33 @@ class ChatMessageModel {
       message: "忘れるな・・・。私が見せるのは真実だ。純粋な真実だ",
       isMine: false,
     ),
+    ChatMessageModel(
+      avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
+      name: "自分",
+      datetime: "20:45",
+      message: "赤を飲むか。。。。",
+      isMine: true,
+    ),
+    ChatMessageModel(
+      avatarUrl: "https://randomuser.me/api/portraits/men/83.jpg",
+      name: "モーフィアス",
+      datetime: "20:46",
+      message: "忘れるな・・・。私が見せるのは真実だ。純粋な真実だ",
+      isMine: false,
+    ),
+    ChatMessageModel(
+      avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
+      name: "自分",
+      datetime: "20:45",
+      message: "赤を飲むか。。。。",
+      isMine: true,
+    ),
+    ChatMessageModel(
+      avatarUrl: "https://randomuser.me/api/portraits/men/83.jpg",
+      name: "モーフィアス",
+      datetime: "20:46",
+      message: "忘れるな・・・。私が見せるのは真実だ。純粋な真実だ",
+      isMine: false,
+    ),
   ];
 }
