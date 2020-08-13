@@ -50,12 +50,10 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
               ),
           ],
         ),
-         ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: 200.0,
-              minHeight: 50.0,
-              ),
-            child: new Container(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end, 
+            children: <Widget>[
+            new Container(
                 color: Colors.green[100],
                 child: Column(
                   children: <Widget>[
@@ -67,7 +65,8 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                             child: new TextFormField(
                                     controller: messageTextInputCtl,
                                     keyboardType: TextInputType.multiline,
-                                    maxLines: null,
+                                    maxLines: 5,
+                                    minLines: 1,
                                     decoration: const InputDecoration(
                                       // border: const UnderlineInputBorder(),
                                       hintText: 'メッセージを入力してください',
@@ -89,7 +88,8 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                   ]
                 )
               ),
-         ),
+            ],
+          )
         ]
       ),
     );
