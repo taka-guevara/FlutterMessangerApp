@@ -60,6 +60,7 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                     new Form(
                       key: _formKey, 
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           new Flexible(
                             child: new TextFormField(
