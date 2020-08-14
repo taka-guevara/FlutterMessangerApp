@@ -73,16 +73,22 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                       hintText: 'メッセージを入力してください',
                                     ),
                                   )),
-                                  RaisedButton.icon(
-                                    icon: Icon(
-                                      Icons.send,
-                                      color: Colors.white,
-                                    ),
-                                    label: Text(""),
-                                    onPressed: () {},
-                                    color: Colors.green[300],
-                                    textColor: Colors.white,
-                                  ),
+                          Material(
+                            color: Colors.green[100],
+                            child: Center(
+                              child: Ink(
+                                decoration: const ShapeDecoration(
+                                  color: Colors.green,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: Icon(Icons.send),
+                                  color: Colors.white,
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ),
+                          )
                         ]
                       )
                     ),
