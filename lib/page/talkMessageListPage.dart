@@ -24,31 +24,34 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
       body: Stack(
         alignment: Alignment.bottomCenter,
         children : <Widget> [
-         ListView(
-          padding: const EdgeInsets.only(top: 10.0, right: 5.0, bottom: 50.0, left: 5.0),
-          children: [
-            for (int index = 0; index < widget.messageList.length; index++)
-              Card(
-                margin: widget.messageList[index].isMine 
-                ? EdgeInsets.only(top: 5.0, left: 90.0, bottom: 5.0, right: 8.0)
-                : EdgeInsets.only(top: 5.0, left: 8.0, bottom: 5.0, right: 90.0),
-                child:ListTile(
-                  title:Text(widget.messageList[index].message),
-                  subtitle: Row(
-                    mainAxisAlignment: widget.messageList[index].isMine 
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl),
-                        radius: 10.0,
-                      ),
-                      Text(widget.messageList[index].name + widget.messageList[index].datetime),
-                    ]
+         GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child:ListView(
+            padding: const EdgeInsets.only(top: 10.0, right: 5.0, bottom: 50.0, left: 5.0),
+            children: [
+              for (int index = 0; index < widget.messageList.length; index++)
+                Card(
+                  margin: widget.messageList[index].isMine 
+                  ? EdgeInsets.only(top: 5.0, left: 90.0, bottom: 5.0, right: 8.0)
+                  : EdgeInsets.only(top: 5.0, left: 8.0, bottom: 5.0, right: 90.0),
+                  child:ListTile(
+                    title:Text(widget.messageList[index].message),
+                    subtitle: Row(
+                      mainAxisAlignment: widget.messageList[index].isMine 
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.start,
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundImage:  NetworkImage(widget.messageList[index].avatarUrl),
+                          radius: 10.0,
+                        ),
+                        Text(widget.messageList[index].name + widget.messageList[index].datetime),
+                      ]
+                    ),
                   ),
                 ),
-              ),
-          ],
+            ],
+          )
         ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end, 
@@ -84,7 +87,9 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                 child: IconButton(
                                   icon: Icon(Icons.send),
                                   color: Colors.white,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    FocusScope.of(context).unfocus();
+                                  },
                                 ),
                               ),
                             ),
