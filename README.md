@@ -1,6 +1,8 @@
-# messanger
+# Messanger App
 
-A new Flutter project.
+I want to make a message app.
+This project is not yet complete.
+You can check the UI.
 
 ## Getting Started
 
