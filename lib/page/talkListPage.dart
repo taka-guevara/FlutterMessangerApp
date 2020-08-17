@@ -11,9 +11,10 @@ enum TalkListType {
 }
 
 class TalkListPage extends StatefulWidget {
-  const TalkListPage({Key key, this.type}) : super(key: key);
+  const TalkListPage({Key key, this.type,  this.chatList}) : super(key: key);
 
   final TalkListType type;
+  final List<ChatModel> chatList;
 
   @override
   _TalkListPageState createState() => _TalkListPageState();
@@ -31,18 +32,18 @@ class _TalkListPageState extends State<TalkListPage> {
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
-            for (int index = 0; index < ChatModel.dummyData.length; index++)
+            for (int index = 0; index < widget.chatList.length; index++)
               ListTile(
                 leading: ExcludeSemantics(
                   child: CircleAvatar(
-                    backgroundImage:  NetworkImage(ChatModel.dummyData[index].avatarUrl)),
+                    backgroundImage:  NetworkImage(widget.chatList[index].avatarUrl)),
                 ),
                 title: Text(
-                  ChatModel.dummyData[index].name,
+                  widget.chatList[index].name,
                 ),
                 subtitle: widget.type == TalkListType.twoLine
                     ? Text(
-                      ChatModel.dummyData[index].message,
+                      widget.chatList[index].message,
                       maxLines: 2,
                     )
                     : null,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:messanger/page/talkListPage.dart';
 
+import 'package:messanger/model/chatModel.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TalkListPage(type: TalkListType.twoLine),
+      home: TalkListPage(type: TalkListType.twoLine, chatList: ChatModel.dummyData),
     );
   }
 }
