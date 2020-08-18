@@ -15,6 +15,21 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
   final messageTextInputCtl = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+
+  void _addMessage(String message) {
+    setState(() {
+      widget.messageList.add(
+        ChatMessageModel(
+          avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
+          name: "自分",
+          datetime: "20:34",
+          message: message,
+          isMine: true,
+        )
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +103,9 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                   icon: Icon(Icons.send),
                                   color: Colors.white,
                                   onPressed: () {
+                                    _addMessage(messageTextInputCtl.text);
                                     FocusScope.of(context).unfocus();
+                                    messageTextInputCtl.clear();
                                   },
                                 ),
                               ),
