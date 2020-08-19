@@ -15,6 +15,7 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
   final messageTextInputCtl = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  ScrollController _scrollController = new ScrollController();
 
   void _addMessage(String message) {
     setState(() {
@@ -41,7 +42,8 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
         children : <Widget> [
          GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child:ListView(
+          child: ListView(
+            controller: _scrollController,
             padding: const EdgeInsets.only(top: 10.0, right: 5.0, bottom: 50.0, left: 5.0),
             children: [
               for (int index = 0; index < widget.messageList.length; index++)
@@ -106,6 +108,11 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                     _addMessage(messageTextInputCtl.text);
                                     FocusScope.of(context).unfocus();
                                     messageTextInputCtl.clear();
+                                    _scrollController.animateTo(
+                                                _scrollController.position.maxScrollExtent,
+                                                curve: Curves.easeOut,
+                                                duration: const Duration(milliseconds: 300),
+                                              );
                                   },
                                 ),
                               ),
