@@ -31,6 +31,14 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
     });
   }
 
+  void _scrollToBottom(){
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent + MediaQuery.of(context).viewInsets.bottom,
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 300),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,9 +97,11 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                     maxLines: 5,
                                     minLines: 1,
                                     decoration: const InputDecoration(
-                                      // border: const UnderlineInputBorder(),
                                       hintText: 'メッセージを入力してください',
                                     ),
+                                    onTap: (){
+                                      _scrollToBottom();
+                                    },
                                   )),
                           Material(
                             color: Colors.green[100],
@@ -108,11 +118,7 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                     _addMessage(messageTextInputCtl.text);
                                     FocusScope.of(context).unfocus();
                                     messageTextInputCtl.clear();
-                                    _scrollController.animateTo(
-                                                _scrollController.position.maxScrollExtent,
-                                                curve: Curves.easeOut,
-                                                duration: const Duration(milliseconds: 300),
-                                              );
+                                    _scrollToBottom();
                                   },
                                 ),
                               ),
