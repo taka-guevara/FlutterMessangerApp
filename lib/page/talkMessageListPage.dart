@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:messanger/model/chatMessageModel.dart';
+import 'dart:async';
 
 class TalkMessageListPage extends StatefulWidget {
   const TalkMessageListPage({Key key, this.messageList}) : super(key: key);
@@ -100,7 +101,11 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                       hintText: 'メッセージを入力してください',
                                     ),
                                     onTap: (){
-                                      _scrollToBottom();
+                                      // タイマーを入れてキーボード分スクロールする様に
+                                      Timer(
+                                        Duration(milliseconds: 100),
+                                        _scrollToBottom,
+                                      );
                                     },
                                   )),
                           Material(
