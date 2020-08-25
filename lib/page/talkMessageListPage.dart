@@ -103,7 +103,7 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                     onTap: (){
                                       // タイマーを入れてキーボード分スクロールする様に
                                       Timer(
-                                        Duration(milliseconds: 100),
+                                        Duration(milliseconds: 200),
                                         _scrollToBottom,
                                       );
                                     },
@@ -123,7 +123,10 @@ class _TalkMessageListPageState extends State<TalkMessageListPage> {
                                     _addMessage(messageTextInputCtl.text);
                                     FocusScope.of(context).unfocus();
                                     messageTextInputCtl.clear();
-                                    _scrollToBottom();
+                                    Timer(
+                                        Duration(milliseconds: 200),
+                                        _scrollToBottom,
+                                      );
                                   },
                                 ),
                               ),
