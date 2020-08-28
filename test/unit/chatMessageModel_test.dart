@@ -29,12 +29,12 @@ void main() {
     ];
   });
 
-  group('dataSource test', () {
-    test("dataSource has 6 data, same as initial data count", () {
+  group('ChatMessageModel test', () {
+    test("test data has 3 data, same as initial data count", () {
       expect(testData.length, 3);
     });
 
-    test("dataSource has 7 data count in total after adding one data", () {
+    test("test data has 4 data, same as add chatMessage test data", () {
       testData.add(ChatMessageModel(
         avatarUrl: "https://randomuser.me/api/portraits/men/49.jpg",
         name: "自分",
@@ -42,7 +42,7 @@ void main() {
         message: "赤を選ぶ",
         isMine: true,
       ));
-      expect(testData.length, 5);
+      expect(testData.length, 4);
     });
   });
   
